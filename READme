@@ -1,0 +1,4 @@
+The app is a Flask web application that takes a stock ticker as input and provides a prediction of the next day's closing price for that stock.
+The app fetches historical prices for the ticker using the Yahoo Finance API, preprocesses the data using Scikit-learn, and fits a linear regression model to make predictions. 
+It then displays the historical and predicted prices using Plotly. The app also generates a map of EV charging stations near the user's location using Folium and the OpenChargeMap API. 
+The app also compare’s two EV stock tickers and give graphs and plots for news sentiment analysis , historical volatility and stock price comparison.
