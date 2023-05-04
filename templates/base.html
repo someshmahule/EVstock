@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+
+      body {
+        background-image: url("https://cdn.pixabay.com/photo/2018/05/02/23/15/electric-car-3367584_960_720.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .navbar {
+        background-color: #1f1f1f;
+        border: none;
+      }
+      .navbar-brand,
+      .navbar-nav>li>a {
+        color: #ffffff !important;
+        font-weight: bold;
+      }
+      .navbar-nav>li>a:hover {
+        color: #cccccc !important;
+      }
+      .container {
+        margin-top: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px;
+      }
+      .jumbotron {
+        background-image: url("https://cdn.pixabay.com/photo/2020/01/06/11/02/tesla-model-s-4748926_960_720.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 0;
+        color: #ffffff;
+        text-shadow: 1px 1px #000000;
+      }
+      .jumbotron h1,
+      .jumbotron p {
+        text-align: center;
+      }
+      .jumbotron p {
+        margin-bottom: 0;
+      }
+      .prediction-container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+        height: 600px;
+      }
+      .news-container {
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+      }
+      .news-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .news-author {
+        font-size: 12px;
+        color: #7e7e7e;
+        margin-bottom: 5px;
+      }
+      .news-link {
+        font-size: 14px;
+        color: #0057b8;
+        margin-bottom: 5px;
+      }
+      .news-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      .map-container {
+        border: none;
+        height: 400px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">EV Stock Predictor</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/">Predict</a></li>
+          <li><a href="/compare">Compare</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Compare{% endblock %}
+
+{% block content %}
+<head>
+    <style>
+        .plot {
+            margin-left: -10px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/compare_stocks" method="POST">
+                    <div class="form-group">
+                        <label for="ticker1">Stock 1:</label>
+                        <input type="text" id="ticker1" name="ticker1" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ticker2">Stock 2:</label>
+                        <input type="text" id="ticker2" name="ticker2" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Compare</button>
+                </form>
+            </div>
+        </div>
+
+        {% if filename or vol_filename or sent_filename %}
+        <hr>
+        <div class="row">
+            {% if filename %}
+            <div class="col-md-6 mt-3">
+                <div class="card">
+                    <div class="card-header text-center">Comparison Plot</div>
+                    <div class="card-body">
+                        <img class="plot img-fluid" src="{{ url_for('static', filename=filename) }}" alt="Comparison Plot">
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if vol_filename %}
+            <div class="col-md-6 mt-3">
+                <div class="card">
+                    <div class="card-header text-center">Volatility Comparison Plot</div>
+                    <div class="card-body">
+                        <img class="plot img-fluid" src="{{ url_for('static', filename=vol_filename) }}" alt="Volatility Comparison Plot">
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if sent_filename %}
+            <div class="col-md-12 mt-3">
+                <div class="card">
+                    <div class="card-header text-center">Sentiment Comparison Plot</div>
+                    <div class="card-body">
+                        <img class="plot img-fluid" src="{{ url_for('static', filename=sent_filename) }}" alt="Sentiment Comparison Plot">
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EV Stock Predictor</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		  crossorigin="anonymous">
+	<style>
+		body {
+			background-color: #f8f9fa;
+		}
+
+		.container {
+			margin-top: 50px;
+			text-align: center;
+		}
+
+		h1 {
+			color: #0057b8;
+			font-size: 48px;
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+
+		form {
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		label {
+			font-weight: bold;
+			font-size: 20px;
+		}
+
+		input[type="text"] {
+			font-size: 18px;
+			padding: 8px 16px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
+
+		button[type="submit"] {
+			font-size: 18px;
+			padding: 8px 16px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+			background-color: #0057b8;
+			color: #ffffff;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #003366;
+			color: #ffffff;
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <h1>Electric Vehicle Stock Predictor</h1>
+    <form method="POST" action="/predict">
+        <label for="ticker">Enter Ticker Symbol:</label>
+        <input type="text" id="ticker" name="ticker" placeholder="e.g. TSLA">
+        <button type="submit">Predict</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
+
+</body>
+</html>

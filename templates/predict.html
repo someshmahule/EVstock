@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Predict{% endblock %}
+
+{% block content %}
+
+<head>
+	<style>
+		.plot-container {
+			margin-top: 50px;
+			margin-bottom: 50px;
+			background-color: #ffffff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+			height: 600px;
+		}
+
+		.news-container {
+			margin-bottom: 20px;
+			background-color: #ffffff;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+		}
+
+		.news-title {
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		.news-author {
+			font-size: 12px;
+			color: #7e7e7e;
+			margin-bottom: 5px;
+		}
+
+		.news-link {
+			font-size: 14px;
+			color: #0057b8;
+			margin-bottom: 5px;
+		}
+
+		.news-image {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 10px;
+		}
+	</style>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<div class="container">
+		<h1>Electric Vehicle Stock Predictor</h1>
+		<h2>Ticker Symbol: {{ ticker }}</h2>
+		<p>Last Available Price: ${{ last_close_price }}</p>
+		<div class="alert alert-success" role="alert">
+		  Next Day Prediction: ${{ next_day_prediction }}
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<div class="plot-container">{{ plot_div|safe }}</div>
+			</div>
+			<div class="col-md-4">
+				<div class="news">
+					<h2>Latest NEWS ...</h2>
+                    {% for article in news %}
+                        <div class="news-container">
+                            <h2 class="news-title">{{ article.title }}</h2>
+                            <p class="news-author">Publisher: {{ article.publisher }}</p>
+                            <p class="news-link">
+                                <form action="{{ article.link }}" method="GET">
+                                    <input type="hidden" name="url" value="{{ article.link }}">
+                                    <button type="submit">Read more...</button>
+                                </form>
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+			</div>
+		</div>
+		<h3>Charging Stations</h3>
+		<div
+				id="map_div">{{ map_div|safe }}
+		</div>
+	</div>
+</body>
+
+{% endblock %}
